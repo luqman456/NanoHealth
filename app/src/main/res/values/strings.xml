@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">NanoHealth</string>
+    <string name="request_timeout">Request timeout, please try again</string>
+    <string name="connection_time_out">Connection timeout, please try again</string>
+    <string name="no_network_messag"> No internet connection available</string>
+    <string name="no_response_message">No response from server</string>
+    <string name="log_in">Log In</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+</resources>
