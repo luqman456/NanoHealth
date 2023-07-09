@@ -17,6 +17,7 @@
     <dimen name="medium_icon_width">@dimen/_12sdp</dimen>
 
     <dimen name="button_height">60dp</dimen>
+    <dimen name="pro_det_button_height">50dp</dimen>
     <dimen name="small_button_height">40dp</dimen>
 
 </resources>

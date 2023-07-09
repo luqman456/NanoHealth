@@ -129,7 +129,7 @@
 
 
                 <Button
-                    android:id="@+id/buttonLogin"
+                    android:id="@+id/btnContinue"
                     style="@style/MaterialButtonStyle"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/button_height"
@@ -158,7 +158,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/buttonLogin"
+                    app:layout_constraintTop_toBottomOf="@+id/btnContinue"
                     tools:ignore="TouchTargetSizeCheck" />
 
                 <androidx.constraintlayout.widget.Guideline
