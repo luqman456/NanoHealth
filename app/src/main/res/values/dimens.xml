@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="header_top_margin">63dp</dimen>
+    <dimen name="patient_back_btn_header_margin_left">25dp</dimen>
+    <dimen name="patient_header_margin_left">25dp</dimen>
+    <dimen name="patient_header_right">25dp</dimen>
+    <dimen name="doctor_header_margin_left">25dp</dimen>
+    <dimen name="doctor_header_right">25dp</dimen>
+    <dimen name="margin_left">20dp</dimen>
+    <dimen name="margin_right">20dp</dimen>
+    <dimen name="margin_mini">2dp</dimen>
+
+    <dimen name="small_icon_height">12dp</dimen>
+    <dimen name="small_icon_width">12dp</dimen>
+
+    <dimen name="medium_icon_height">@dimen/_12sdp</dimen>
+    <dimen name="medium_icon_width">@dimen/_12sdp</dimen>
+
+    <dimen name="button_height">60dp</dimen>
+    <dimen name="small_button_height">40dp</dimen>
+
+</resources>

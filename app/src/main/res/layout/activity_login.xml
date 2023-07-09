@@ -30,18 +30,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-<!--                <androidx.constraintlayout.widget.Guideline-->
-<!--                    android:id="@+id/guideline2"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:orientation="horizontal"-->
-<!--                    app:layout_constraintGuide_percent="0.50" />-->
-
                 <View
                     android:id="@+id/view"
                     android:layout_width="0dp"
-                    android:layout_height="@dimen/_250sdp"
+                    android:layout_height="0dp"
+                    android:layout_marginBottom="16dp"
                     android:background="@drawable/gradient_drawable"
+                    app:layout_constraintBottom_toTopOf="@+id/guideline"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -65,7 +60,7 @@
                     android:text="@string/log_in"
                     android:textColor="@color/white"
                     android:textSize="@dimen/_18sdp"
-                    android:textStyle="bold"
+                    android:fontFamily="@font/sf_pro_text_bold"
                     app:layout_constraintBottom_toBottomOf="@+id/view"
                     app:layout_constraintStart_toStartOf="@+id/view"
                     app:layout_constraintTop_toBottomOf="@+id/imageView2"
@@ -78,7 +73,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
                     android:layout_marginStart="24dp"
-                    android:layout_marginTop="@dimen/_50sdp"
+                    android:layout_marginTop="16dp"
                     android:layout_marginEnd="24dp"
                     android:hint="@string/email"
                     android:theme="@style/TextInputLayoutAppearance"
@@ -86,7 +81,11 @@
                     app:hintTextColor="@color/dark_black"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/view">
+                    app:layout_constraintTop_toTopOf="@+id/guideline"
+                    app:endIconMode="custom"
+                    app:endIconDrawable="@drawable/ic_check"
+                    app:passwordToggleTint="@color/blue"
+                    >
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/editTextEmail"
@@ -105,25 +104,76 @@
                     android:layout_below="@+id/edTFirstName"
                     android:layout_centerInParent="true"
                     android:layout_marginStart="24dp"
-                    android:layout_marginTop="@dimen/_50sdp"
+                    android:layout_marginTop="8dp"
                     android:layout_marginEnd="24dp"
                     android:hint="@string/password"
                     android:theme="@style/TextInputLayoutAppearance"
-
+                    app:boxStrokeColor="@color/dark_black"
+                    app:hintTextColor="@color/dark_black"
+                    app:layout_constraintBottom_toTopOf="@+id/guideline2"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/edTFirstName"
+                    app:layout_constraintVertical_bias="0.25"
                     app:passwordToggleEnabled="true"
-                    app:passwordToggleTint="@color/blue">
+                    app:passwordToggleTint="@color/blue"
+                    >
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/editTextPassword"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:imeOptions="actionDone"
-                        android:inputType="textPassword"
-                        android:textColor="@color/blue" />
+                        android:inputType="textPassword" />
                 </com.google.android.material.textfield.TextInputLayout>
+
+
+                <Button
+                    android:id="@+id/buttonLogin"
+                    style="@style/MaterialButtonStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/button_height"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginEnd="24dp"
+                    android:onClick="@{(v)-> clickHandler.onClick(v)}"
+                    android:text="@string/continue_btn_text"
+                    app:backgroundTint="@null"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/guideline2" />
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:fontFamily="@font/sf_pro_text_medium"
+                    android:text="@string/need_help"
+                    android:textSize="@dimen/_15sdp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/buttonLogin"
+                    tools:ignore="TouchTargetSizeCheck" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.5" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.75" />
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
