@@ -34,6 +34,10 @@
         <item name="android:background">@drawable/btn_background</item>
     </style>
 
+    <style name="CustomCardViewStyle" parent="@style/Widget.MaterialComponents.CardView">
+        <item name="shapeAppearanceOverlay">@style/TopCornerCardView</item>
+    </style>
+
     <style name="TopCornerCardView" parent="Widget.MaterialComponents.CardView">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSizeTopRight">0dp</item>
@@ -41,6 +45,10 @@
         <item name="cornerSizeBottomRight">35dp</item>
         <item name="cornerSizeBottomLeft">35dp</item>
         <item name="contentPadding">0dp</item>
+    </style>
+
+    <style name="ProDetailCardViewStyle" parent="@style/Widget.MaterialComponents.CardView">
+        <item name="shapeAppearanceOverlay">@style/TopCornerCardViewProDetail</item>
     </style>
 
     <style name="TopCornerCardViewProDetail" parent="Widget.MaterialComponents.CardView">

@@ -12,10 +12,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        Handler(Looper.getMainLooper()).postDelayed({
-            startActivity(Intent(this,ProductDetailActivity::class.java))
-            finish()
-        }, 200)
+//        Handler(Looper.getMainLooper()).postDelayed({
+//            startActivity(Intent(this,ProductDetailActivity::class.java))
+//            finish()
+//        }, 200)
 
 
     }

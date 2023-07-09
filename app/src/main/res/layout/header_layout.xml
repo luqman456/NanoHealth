@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="@dimen/_60sdp"
     android:orientation="vertical"
-    android:theme="@style/TopCornerCardView"
+    style="@style/CustomCardViewStyle"
     app:cardBackgroundColor="@color/white"
     app:cardUseCompatPadding="true"
     >
