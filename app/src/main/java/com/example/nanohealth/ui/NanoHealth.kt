@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import android.app.Application
 import android.content.Context
 import com.example.nanohealth.data.Apis
-import com.example.nanohealth.retrofit.RetrofitCleintNew
 import com.example.nanohealth.retrofit.RetrofitClient
 
 class NanoHealth : Application() {
@@ -19,7 +18,7 @@ class NanoHealth : Application() {
         }
 
         fun getRetrofitClient(): Apis {
-            return RetrofitCleintNew().getRetrofitConnection().create(Apis::class.java)
+            return RetrofitClient().getRetrofitConnection().create(Apis::class.java)
         }
 
     }

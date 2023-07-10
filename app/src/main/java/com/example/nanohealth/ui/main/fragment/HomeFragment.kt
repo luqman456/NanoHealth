@@ -53,17 +53,14 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
                 dataBinding.recycleViewPro.visibility = View.GONE
                 dataBinding.textViewTitle.visibility = View.VISIBLE
             } else {
-                Log.e("List", "${it.size}")
                 if (productList.size > 0) {
                     productList.clear()
                     productAdapter?.notifyDataSetChanged()
                 }
                 dataBinding.textViewTitle.visibility = View.GONE
                 dataBinding.recycleViewPro.visibility = View.VISIBLE
-                it.let {
-                    productList.addAll(it)
-                    productAdapter?.notifyDataSetChanged()
-                }
+                productList.addAll(it)
+                productAdapter?.notifyDataSetChanged()
 
 
             }

@@ -6,7 +6,7 @@ import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import com.example.nanohealth.R
 import com.example.nanohealth.databinding.ActivityLoginBinding
-import com.example.nanohealth.retrofit.RetrofitCleintNew
+import com.example.nanohealth.retrofit.RetrofitClient
 import com.example.nanohealth.ui.base.BaseActivity
 import com.example.nanohealth.ui.main.viewmodel.LoginViewModel
 
@@ -17,7 +17,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         dataBinding.clickHandler = this
-        RetrofitCleintNew().clearRetrofit()
+        RetrofitClient().clearRetrofit()
         loginViewModel =
             ViewModelProvider(this@LoginActivity)[LoginViewModel::class.java]
 
