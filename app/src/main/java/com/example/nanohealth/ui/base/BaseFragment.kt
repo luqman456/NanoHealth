@@ -49,7 +49,7 @@ abstract class BaseFragment<DB : ViewDataBinding> : Fragment(), OnClickHandler {
     @LayoutRes
     protected abstract fun getLayoutRes(): Int
 
-    fun show(text: String) {
+    fun showToast(text: String) {
         Toast.makeText(requireContext(), text, Toast.LENGTH_SHORT).show()
     }
 

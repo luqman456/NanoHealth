@@ -36,6 +36,9 @@ class ProductViewHolder(
         binding.product = product
         binding.ratingBar.rating = product.rating?.rate?.toFloat() ?: 0f
         ImageUtil.loadImage(binding.imageView, product.image)
+        binding.container.setOnClickListener {
+            clickEvent.invoke(product.id)
+        }
     }
 
 }

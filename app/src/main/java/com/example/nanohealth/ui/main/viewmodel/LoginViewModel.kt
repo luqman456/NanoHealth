@@ -23,7 +23,7 @@ class LoginViewModel constructor(
         loading.value = true
         job = CoroutineScope(Dispatchers.IO + exceptionHandler).launch {
             val response = loginRepository.loginRequest(
-                Login(username = email, password= password)
+                Login(username = "mor_2314", password= "83r5^_")
             )
             withContext(Dispatchers.Main) {
                 if (response.isSuccessful) {

@@ -1,12 +1,12 @@
 package com.example.nanohealth.ui.main.activities
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import com.example.nanohealth.R
 import com.example.nanohealth.databinding.ActivityLoginBinding
+import com.example.nanohealth.retrofit.RetrofitCleintNew
 import com.example.nanohealth.ui.base.BaseActivity
 import com.example.nanohealth.ui.main.viewmodel.LoginViewModel
 
@@ -17,11 +17,12 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         dataBinding.clickHandler = this
+        RetrofitCleintNew().clearRetrofit()
         loginViewModel =
             ViewModelProvider(this@LoginActivity)[LoginViewModel::class.java]
 
         loginViewModel.apiError.observe(this@LoginActivity) {
-            show(it.toString())
+            showToast(it.toString())
         }
 
         loginViewModel.loading.observe(this@LoginActivity) {
@@ -32,12 +33,18 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>() {
             }
         }
 
+        loginViewModel.apiCallException.observe(this@LoginActivity) {
+            dismissProgressDialog()
+            showToast(it.exceptionMsg)
+        }
+
         loginViewModel.loginResponse.observe(this@LoginActivity) {
             it?.let {
                startActivity(Intent(this@LoginActivity,MainActivity::class.java))
                finish()
             }
         }
+
 
     }
 
