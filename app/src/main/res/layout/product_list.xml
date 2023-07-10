@@ -25,16 +25,16 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
+            android:adjustViewBounds="true"
             android:scaleType="fitXY"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:riv_border_color="@color/light"
+            app:riv_border_width="1dp"
             app:riv_corner_radius="12dp"
             app:riv_mutate_background="true"
             app:riv_oval="false"
-            android:adjustViewBounds="true"
-            app:riv_border_width="1dp"
-            app:riv_border_color="@color/light"
             app:srcCompat="@drawable/main_logo"
             tools:ignore="ContentDescription" />
 
@@ -76,6 +76,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:fontFamily="@font/sf_pro_text_regular"
+            android:justificationMode="inter_word"
             android:text="@{product.title}"
             android:textColor="@color/dark_color"
             android:textSize="@dimen/_13sdp"
@@ -83,7 +84,8 @@
             app:layout_constraintEnd_toEndOf="@+id/imageView"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/imageView"
-            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+            app:layout_constraintTop_toBottomOf="@+id/imageView"
+            tools:ignore="UnusedAttribute" />
 
         <TextView
             android:id="@+id/tvPDes"
@@ -91,6 +93,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:fontFamily="@font/sf_pro_text_regular"
+            android:justificationMode="inter_word"
             android:text="@{product.description}"
             android:textColor="@color/dark_color"
             android:textSize="@dimen/_11sdp"
@@ -98,7 +101,8 @@
             app:layout_constraintEnd_toEndOf="@+id/imageView"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/tvPName"
-            app:layout_constraintTop_toBottomOf="@+id/tvPName" />
+            app:layout_constraintTop_toBottomOf="@+id/tvPName"
+            tools:ignore="UnusedAttribute" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

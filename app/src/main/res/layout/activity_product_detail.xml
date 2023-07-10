@@ -115,9 +115,11 @@
                     android:textColor="@color/dark_color"
                     android:textSize="@dimen/_13sdp"
                     android:textStyle="italic"
+                    android:justificationMode="inter_word"
                     app:layout_constraintEnd_toEndOf="@+id/btnOrderNow"
                     app:layout_constraintStart_toStartOf="@+id/viewShare"
-                    app:layout_constraintTop_toBottomOf="@+id/viewShare" />
+                    app:layout_constraintTop_toBottomOf="@+id/viewShare"
+                    tools:ignore="UnusedAttribute" />
 
                 <TextView
                     android:id="@+id/tvPDes"
@@ -130,10 +132,12 @@
                     android:textColor="@color/dark_color"
                     android:textSize="@dimen/_11sdp"
                     android:textStyle="normal"
+                    android:justificationMode="inter_word"
                     app:layout_constraintEnd_toEndOf="@+id/btnOrderNow"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="@+id/tvPName"
-                    app:layout_constraintTop_toBottomOf="@+id/tvPName" />
+                    app:layout_constraintTop_toBottomOf="@+id/tvPName"
+                    tools:ignore="UnusedAttribute" />
 
                 <ImageView
                     android:id="@+id/ivUpDwon"
@@ -191,7 +195,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:max="5"
-                    android:progressTint="@color/golden"
                     android:rating="4"
                     android:scaleX="1"
                     android:scaleY=".8"
@@ -201,7 +204,9 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/textView4"
                     app:layout_constraintTop_toTopOf="@+id/textView4"
-                    tools:ignore="SpeakableTextPresentCheck" />
+                    tools:ignore="SpeakableTextPresentCheck"
+                    android:theme="@style/RatingBar"
+                    />
 
                 <androidx.constraintlayout.widget.Group
                     android:id="@+id/group"

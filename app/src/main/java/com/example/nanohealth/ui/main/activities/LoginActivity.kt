@@ -55,7 +55,13 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>() {
     override fun onClick(v: View) {
         when (v.id) {
             R.id.btnContinue -> {
-                loginViewModel.sendLongRequest(dataBinding.editTextEmail.text.toString().trim(),dataBinding.editTextPassword.text.toString().trim())
+                if(dataBinding.editTextEmail.text.toString().isEmpty()){
+                    showToast("Email or Username required")
+                }else if(dataBinding.editTextPassword.text.toString().isEmpty()){
+                    showToast("Password required")
+                }else{
+                    loginViewModel.sendLongRequest(dataBinding.editTextEmail.text.toString().trim(),dataBinding.editTextPassword.text.toString().trim())
+                }
             }
 
         }

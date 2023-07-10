@@ -5,6 +5,6 @@ import com.example.nanohealth.ui.NanoHealth
 
 class LoginRepository {
 
-    suspend fun loginRequest(product: Login) =
-        NanoHealth.getRetrofitClient().loginRequest(product)
+    suspend fun loginRequest(login: Login) =
+        NanoHealth.getRetrofitClient().loginRequest(login)
 }

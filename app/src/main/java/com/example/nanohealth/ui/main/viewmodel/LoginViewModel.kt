@@ -19,11 +19,11 @@ class LoginViewModel constructor(
     val loginResponse = MutableLiveData<LoginResponse>()
 
 
-    fun sendLongRequest(email: String, password: String) {
+    fun sendLongRequest(username: String, password: String) {
         loading.value = true
         job = CoroutineScope(Dispatchers.IO + exceptionHandler).launch {
             val response = loginRepository.loginRequest(
-                Login(username = "mor_2314", password= "83r5^_")
+                Login(username = username, password= password)
             )
             withContext(Dispatchers.Main) {
                 if (response.isSuccessful) {
