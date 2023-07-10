@@ -18,6 +18,7 @@ class ProductViewModel constructor(
 
     private val productRepository = ProductListRepository()
     val productList = MutableLiveData<List<Product>>()
+    val shareProductList = MutableLiveData<List<Product>>()
     val productDetails = MutableLiveData<Product>()
 
 
@@ -53,6 +54,10 @@ class ProductViewModel constructor(
             }
         }
 
+    }
+
+    fun sendMessage(list: List<Product>) {
+        shareProductList.value = list
     }
 
 

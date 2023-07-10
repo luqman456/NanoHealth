@@ -44,30 +44,10 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     @SuppressLint("NotifyDataSetChanged")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         initializeRecycleView()
 
-        if (productList.size == 0) {
-            productViewModel.getProduct()
-        }
-
-        productViewModel.apiError.observe(viewLifecycleOwner) {
-            showToast(it.toString())
-        }
-
-        productViewModel.loading.observe(viewLifecycleOwner) {
-            if (it == true) {
-                showProgressDialogWithCustomText("Loading...")
-            } else {
-                dismissProgressDialog()
-            }
-        }
-
-        productViewModel.apiCallException.observe(viewLifecycleOwner) {
-            dismissProgressDialog()
-            showToast(it.exceptionMsg)
-        }
-
-        productViewModel.productList.observe(viewLifecycleOwner) {
+        productViewModel.shareProductList.observe(viewLifecycleOwner) {
 
             if (it == null) {
                 dataBinding.recycleViewPro.visibility = View.GONE

@@ -1,9 +1,11 @@
 package com.example.nanohealth.ui.main.activities
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
+import androidx.lifecycle.ViewModelProvider
 import com.example.nanohealth.R
 import com.example.nanohealth.databinding.ActivityMainBinding
 import com.example.nanohealth.ui.base.BaseActivity
@@ -11,6 +13,7 @@ import com.example.nanohealth.ui.main.fragment.CartFragment
 import com.example.nanohealth.ui.main.fragment.HomeFragment
 import com.example.nanohealth.ui.main.fragment.LikeFragment
 import com.example.nanohealth.ui.main.fragment.ProfileFragment
+import com.example.nanohealth.ui.main.viewmodel.ProductViewModel
 
 class MainActivity : BaseActivity<ActivityMainBinding>() {
 
@@ -19,10 +22,11 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     private lateinit var likeFragment: LikeFragment
     private lateinit var profileFragment: ProfileFragment
     private var fragment: Fragment? = null
+    private lateinit var productViewModel: ProductViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        productViewModel = ViewModelProvider(this@MainActivity)[ProductViewModel::class.java]
         homeFragment = HomeFragment()
         cartFragment = CartFragment()
         likeFragment = LikeFragment()
@@ -32,24 +36,22 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
             when (item.itemId) {
                 R.id.home -> {
-                    if (fragment != homeFragment) {
-                        fragment = homeFragment
+                    fragment = homeFragment
+                    if (!productViewModel.shareProductList.isInitialized) {
+                        productViewModel.getProduct()
                     }
                 }
 
                 R.id.cart -> {
-                    if (fragment != cartFragment)
-                        fragment = cartFragment
+                    fragment = cartFragment
                 }
 
                 R.id.like -> {
-                    if (fragment != likeFragment)
-                        fragment = likeFragment
+                    fragment = likeFragment
                 }
 
                 R.id.profile -> {
-                    if (fragment != profileFragment)
-                        fragment = profileFragment
+                    fragment = profileFragment
                 }
             }
             fragment?.let {
@@ -63,6 +65,33 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         openHomeFragment()
 
 
+        productViewModel.apiError.observe(this) {
+            showToast(it.toString())
+        }
+
+        productViewModel.loading.observe(this) {
+            if (it == true) {
+                showProgressDialogWithCustomText("Loading...")
+            } else {
+                dismissProgressDialog()
+            }
+        }
+
+        productViewModel.apiCallException.observe(this) {
+            dismissProgressDialog()
+            showToast(it.exceptionMsg)
+        }
+
+        productViewModel.productList.observe(this) {
+
+            it.let {
+                productViewModel.sendMessage(it)
+            }
+        }
+
+        productViewModel.getProduct()
+
+
     }
 
     private fun featureNotAvailable() {
@@ -71,17 +100,8 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     }
 
     private fun openHomeFragment() {
-//        val transaction: FragmentTransaction = supportFragmentManager.beginTransaction()
-//        transaction.replace(
-//            R.id.frameLayout,
-//            homeFragment
-//        )
-//        transaction.addToBackStack(null)
-//        transaction.commit()
-
         supportFragmentManager.beginTransaction().replace(R.id.frameLayout, homeFragment)
             .disallowAddToBackStack().commit()
-
     }
 
     override fun getLayoutResource(): Int {
